@@ -1,37 +1,42 @@
 $(document).ready(function(){
 	$.getJSON("http://json-data.herokuapp.com/forms", function(data){
-		var htmlStr = ""
+		var htmlStr = ''
 
 		data.forEach(function(subject){
 			if (subject.type === 'text') {
-				htmlStr += `i class="fa ${subject.icon}" aria-hidden="true"></i><input type ="${subject.type}" placeholder="${subject.label}" id="${subject.id} />"`
+				htmlStr += `<div class="subject"><i class="fa ${subject.icon}" aria-hidden="true"></i><input type ="${subject.type}" placeholder="${subject.label}" id="${subject.id}" /></div>`
 			}
 
 			if (subject.type === 'email') {
-				htmlStr += `i class="fa ${subject.icon}" aria-hidden="true"></i><input type ="${subject.type}" placeholder="${subject.label}" id="${subject.id} />"`
+				htmlStr += `<div class="subject"><i class="fa ${subject.icon}" aria-hidden="true"></i><input type ="${subject.type}" placeholder="${subject.label}" id="${subject.id}" /></div>`
 			}
 
 			if (subject.type === 'tel') {
-				htmlStr += `i class="fa ${subject.icon}" aria-hidden="true"></i><input type ="${subject.type}" placeholder="${subject.label}" id="${subject.id} />"`
+				htmlStr += `<div class="subject"><i class="fa ${subject.icon}" aria-hidden="true"></i><input type ="${subject.type}" placeholder="${subject.label}" id="${subject.id}" /></div>`
 			}
 
 			if (subject.type === 'select') {
-				htmlStr += `<select id=${subject.id}>
+				htmlStr += `<select id="${subject.id}">
 					<option value=''>${subject.label}</option>`
 
-					subject.option.forEach(function(option){
-						htmlStr += `<option value="${option.value}">"${option.label}"</option>`
+					subject.options.forEach(function(option){
+						htmlStr += `<option value="${option.value}">${option.label}</option>`
 					})
 
 				htmlStr += `</select>`
 			}
 
 			if (subject.type === 'textarea') {
-				htmlStr += `i class="fa ${subject.icon}" aria-hidden="true"></i><textarea id ="${subject.id}" placeholder="${subject.label}"></textarea>`
+				htmlStr += `<div class="textarea"><i class="fa ${subject.icon}" aria-hidden="true"></i><textarea id ="${subject.id}" placeholder="${subject.label}"></textarea></div>`
 			}
 		})
 
-		$("#form").html(htmlStr)
+		console.log(htmlStr)
+		
+
+		htmlStr += `<button type="submit form">Submit Form</button>`
+
+		$("#sign").html(htmlStr)
 
 	})
 })

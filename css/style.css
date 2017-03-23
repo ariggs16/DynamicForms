@@ -1,0 +1,62 @@
+html {
+	box-sizing:border-box;
+}
+*, *:before, *:after {
+	box-sizing:inherit;
+}
+#sign {
+	width:540px;
+	margin:auto;
+	border:1px solid #ccc;
+	padding:20px;
+}
+.header {
+	border:1px solid;
+	width:540px;
+	height:100px;
+	font-size:30px;
+	line-height:50px;
+	margin:auto;
+	padding:25px;
+	color:white;
+	background:rgb(66,139,202);
+
+}
+.subject, .textarea {
+	margin:30px auto;
+	width:500px;
+	border:1px solid #ccc;
+
+}
+.subject {
+	height:40px;
+	line-height:38px;
+}
+.textarea {
+	height:100px;
+	display:flex;
+}
+textarea {
+	height:96px;
+	width:450;
+	border:0;
+	outline:0;
+	resize:none;
+}
+i {
+	display:inline-block;
+	width:40px;
+	text-align:center;
+
+}
+input {
+	width:450px;
+	border:0;
+	height:38px;
+	outline:0;
+}
+select {
+	width:500px;
+	height:40px;
+	border:1px solid #ccc;
+}
